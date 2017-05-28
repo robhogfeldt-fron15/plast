@@ -28,7 +28,7 @@ export class LoginPage {
         message: `Välkommen till appen!, ${event.result.email} `,
         duration: 3000
       }).present();
-      this.navCtrl.setRoot('HomePage');
+      this.navCtrl.setRoot('ProfilePage');
     } else {
       this.toast.create({
         message: event.error.message,
@@ -38,7 +38,7 @@ export class LoginPage {
   }
 
   navigateToPage() {
-    
+
   }
 
 }

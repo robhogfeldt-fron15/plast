@@ -1,8 +1,8 @@
-import { User } from '../models/user.interface';
+import { Profile } from '../models/profile.interface';
 import { Product } from '../models/product.interface';
 
 
-const userList: User[] = [
+const userList: Profile[] = [
     {
         name: 'Robert',
         email: 'rob@gmail.com',

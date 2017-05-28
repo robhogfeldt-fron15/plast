@@ -1,6 +1,6 @@
 import { Product } from './product.interface'
 
-export interface User {
+export interface Profile {
     name: string;
     email: string;
     products: Product[]

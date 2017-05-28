@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { USER_LIST } from '../../mocks/users';
+import { USER_LIST } from '../../mocks/profiles';
 
 /**
  * Generated class for the HomePage page.

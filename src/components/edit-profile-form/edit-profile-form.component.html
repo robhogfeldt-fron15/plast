@@ -1,0 +1,19 @@
+ <ion-card>
+   <ion-card-content>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input [(ngModel)]="profile.name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="profile.email" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngFor="let product of profile.products">{{product}}</ion-item>
+   </ion-card-content>
+
+   <ion-row class="login-form__btns">
+     <div>
+     <button ion-button (click)="saveProfile()">Login</button>
+     </div>
+   </ion-row>
+  </ion-card>
