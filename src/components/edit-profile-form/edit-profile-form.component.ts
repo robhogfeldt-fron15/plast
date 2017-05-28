@@ -16,7 +16,7 @@ import { DataService} from '../../providers/data';
   templateUrl: 'edit-profile-form.component.html'
 })
 export class EditProfileFormComponent implements OnDestroy {
-  
+
   ngOnDestroy(): void {
     this.authenticatedUser$.unsubscribe();
   }
@@ -26,11 +26,13 @@ export class EditProfileFormComponent implements OnDestroy {
   profile = {} as Profile;
   constructor(private data: DataService, private auth: AuthService) {
    this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
-
+    this.authenticatedUser = user;
    })
   }
 
   async saveProfile() {
+    console.log('TEst');
+    
     if(this.authenticatedUser){
        this.profile.email = this.authenticatedUser.email;
        const result = await this.data.saveProfile(this.authenticatedUser, this.profile);
