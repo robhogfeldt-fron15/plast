@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { LoginResponse } from '../../models/login-response.interface';
 
 
 /**
@@ -15,13 +16,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(
+    private navCtrl: NavController, 
+    private navParams: NavParams, 
+    private toast: ToastController) {
   }
 
-  navigateToPage(pageName: string) {
-   pageName === 'TabsPage' ? this.navCtrl.setRoot(pageName) : this.navCtrl.push(pageName);
+  login(event: LoginResponse) {
+    if(!event.error){
+      this.toast.create({
+        message: `Välkommen till appen!, ${event.result.email} `,
+        duration: 3000
+      }).present();
+      this.navCtrl.setRoot('HomePage');
+    } else {
+      this.toast.create({
+        message: event.error.message,
+        duration: 3000
+      }).present();
+    }
   }
 
- 
+  navigateToPage() {
+    
+  }
 
 }
